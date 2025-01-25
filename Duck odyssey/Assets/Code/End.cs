@@ -30,6 +30,8 @@ public class End : MonoBehaviour
         GamePlayUI.SetActive(false);
         WinUI.SetActive(false);
         LoseUI.SetActive(true);
+
+        StopCoroutine(FindFirstObjectByType<Spawn>().SpawnObjects());
     }
 
     public void Replay()

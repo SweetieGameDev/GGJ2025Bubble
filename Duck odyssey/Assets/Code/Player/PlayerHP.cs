@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHP : MonoBehaviour
 {
     public int PlayerHealth; // Player's health value
-    public bool iFrames; //
+    public bool iFrames; // Can the player take damage
     public Goal Hight; // Visual timer value
 
     public End State;
@@ -20,6 +20,8 @@ public class PlayerHP : MonoBehaviour
         timeToWin = 120f;
         PlayerHealth = 2; // Starting player health
         iFrames = false;
+
+        StartCoroutine(FindFirstObjectByType<Spawn>().SpawnObjects());
     }
 
     private void Update()
