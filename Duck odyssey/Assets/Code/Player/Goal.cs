@@ -9,6 +9,11 @@ public class Goal : MonoBehaviour
     public Gradient gradient;
     public Image goalImage;
 
+    void Start()
+    {
+        SetEndGoal(120); // 120 Seconds to win
+    }
+
     public void SetEndGoal(int Hight)
     {
         slider.maxValue = Hight;
@@ -23,5 +28,7 @@ public class Goal : MonoBehaviour
         slider.value = Hight;
 
         goalImage.color = gradient.Evaluate(slider.normalizedValue);
+
+        
     }
 }

@@ -7,11 +7,14 @@ public class PlayerHP : MonoBehaviour
     public int PlayerHealth; // Player's health value
     public Goal Hight; // Visual timer value
 
-    public float timeToWin = 300f; //Player must stay alive for this time to win
+    public End State;
+
+    public float timeToWin = 120f; //Player must stay alive for this time to win
     private float sliderProgress = 0f; // Current surival time for player
 
     void Awake()
     {
+        timeToWin = 120f;
         PlayerHealth = 2; // Starting player health
     }
 
@@ -31,7 +34,18 @@ public class PlayerHP : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             Debug.Log("Player is dead");
+
+            State.LoseState();
         }
+
+
+        // Check if sliderProgress matches timetowin
+        if (sliderProgress >= 1f)
+        {
+            Debug.Log("Player Wins!");
+            State.WinState();
+        }
+
     }
 
     public void OnTriggerEnter(Collider other)
