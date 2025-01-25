@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour
 {
     public int PlayerHealth; // Player's health value
+    public bool iFrames; //
     public Goal Hight; // Visual timer value
 
     public End State;
@@ -16,6 +19,7 @@ public class PlayerHP : MonoBehaviour
     {
         timeToWin = 120f;
         PlayerHealth = 2; // Starting player health
+        iFrames = false;
     }
 
     private void Update()
@@ -48,12 +52,30 @@ public class PlayerHP : MonoBehaviour
 
     }
 
+    // Player is Invincible to all damage apart from water to 5 seconds
+    private IEnumerator InvincibleTime()
+    {
+        iFrames = true;
+
+        yield return new WaitForSeconds(5);
+
+        iFrames = false;
+
+        StopCoroutine(InvincibleTime());
+
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         // If bath bomb hit's player, take away 1 health
         if (other.gameObject.CompareTag("BathBomb"))
         {
-            PlayerHealth -= 1;
+            // When damage is taken start Invincible Frames
+            if (iFrames == false)
+            {
+                StartCoroutine(InvincibleTime());
+                PlayerHealth -= 1;
+            }
         }
 
         // If bath bomb hit's player, instantly kill the player

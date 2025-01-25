@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class BathBombLogic : MonoBehaviour
 {
-    public PlayerHP TakeDam;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // If bath bomb hit's player, destroy itself
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
