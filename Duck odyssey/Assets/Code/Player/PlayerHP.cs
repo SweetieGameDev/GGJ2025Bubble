@@ -28,6 +28,7 @@ public class PlayerHP : MonoBehaviour
         DuckRB.useGravity = false; // Prevents Player from falling
 
         StartCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
+        StartCoroutine(FindFirstObjectByType<SpawnBubbles>().SpawnPrefabs());
     }
 
     private void Update()

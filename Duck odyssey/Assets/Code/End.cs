@@ -23,6 +23,9 @@ public class End : MonoBehaviour
         GamePlayUI.SetActive(false);
         WinUI.SetActive(true);
         LoseUI.SetActive(false);
+
+        StopCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
+        StopCoroutine(FindFirstObjectByType<SpawnBubbles>().SpawnPrefabs());
     }
 
     public void LoseState()
@@ -32,6 +35,7 @@ public class End : MonoBehaviour
         LoseUI.SetActive(true);
 
         StopCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
+        StopCoroutine(FindFirstObjectByType<SpawnBubbles>().SpawnPrefabs());
     }
 
     public void Replay()

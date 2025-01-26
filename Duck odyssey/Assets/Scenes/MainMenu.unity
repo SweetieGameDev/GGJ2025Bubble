@@ -755,6 +755,22 @@ PrefabInstance:
       propertyPath: NotZero
       value: 
       objectReference: {fileID: 1694327239}
+    - target: {fileID: 7689038025928826356, guid: e5cac6590b8db5a49a6ef72f50d84e2d, type: 3}
+      propertyPath: objectPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689038025928826356, guid: e5cac6590b8db5a49a6ef72f50d84e2d, type: 3}
+      propertyPath: 'objectPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8786985077407071392, guid: c64938e694aac16459d52ac71fceee2c, type: 3}
+    - target: {fileID: 7689038025928826356, guid: e5cac6590b8db5a49a6ef72f50d84e2d, type: 3}
+      propertyPath: 'objectPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6470928578676805396, guid: c895793eda80e6c46b20578f30c46663, type: 3}
+    - target: {fileID: 7689038025928826356, guid: e5cac6590b8db5a49a6ef72f50d84e2d, type: 3}
+      propertyPath: 'objectPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7125325908670473106, guid: 267c8574b3e4e4044a2ad9a1138d15a9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -820,6 +836,10 @@ PrefabInstance:
       propertyPath: NotZero
       value: 
       objectReference: {fileID: 1694327239}
+    - target: {fileID: 6541110274547421908, guid: cd9fc022884276e4da388d474ff12041, type: 3}
+      propertyPath: bubblePrefab
+      value: 
+      objectReference: {fileID: 935726976965094884, guid: 9bf6311485d5da9499938c3c183b9c4b, type: 3}
     - target: {fileID: 8613605267388253288, guid: cd9fc022884276e4da388d474ff12041, type: 3}
       propertyPath: m_LocalPosition.y
       value: -5.09

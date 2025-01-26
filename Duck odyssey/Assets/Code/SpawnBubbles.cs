@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class SpawnBubbles : MonoBehaviour
 {
-    public GameObject objectPrefab;
+    public GameObject bubblePrefab;
     public Transform[] spawnPoints;
 
     public float minDelay;
     public float maxDelay;
 
     public PlayerHP NotZero;
-
 
     public IEnumerator SpawnPrefabs()
     {
@@ -25,7 +24,7 @@ public class SpawnBubbles : MonoBehaviour
             int spawnIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
             Transform spawnPoint = spawnPoints[spawnIndex];
 
-            GameObject spawnedObject = Instantiate(objectPrefab, spawnPoint.position, spawnPoint.rotation);
+            GameObject spawnedObject = Instantiate(bubblePrefab, spawnPoint.position, spawnPoint.rotation);
             Destroy(spawnedObject, 5f);
         }
 
