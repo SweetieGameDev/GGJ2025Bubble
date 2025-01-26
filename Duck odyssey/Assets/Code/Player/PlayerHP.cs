@@ -15,13 +15,19 @@ public class PlayerHP : MonoBehaviour
     public float timeToWin = 120f; //Player must stay alive for this time to win
     private float sliderProgress = 0f; // Current surival time for player
 
+    private Rigidbody DuckRB;
+
     void Awake()
     {
         timeToWin = 120f;
         PlayerHealth = 2; // Starting player health
         iFrames = false;
 
-        StartCoroutine(FindFirstObjectByType<Spawn>().SpawnObjects());
+        DuckRB = GetComponent<Rigidbody>();
+
+        DuckRB.useGravity = false; // Prevents Player from falling
+
+        StartCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
     }
 
     private void Update()
@@ -40,6 +46,8 @@ public class PlayerHP : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             Debug.Log("Player is dead");
+
+            DuckRB.useGravity = true;  // Dead Player falls into water
 
             State.LoseState();
         }
@@ -78,6 +86,12 @@ public class PlayerHP : MonoBehaviour
                 StartCoroutine(InvincibleTime());
                 PlayerHealth -= 1;
             }
+        }
+
+        // If bubbles touch player, restore their health
+        if (other.gameObject.CompareTag("Bubbles"))
+        {
+            PlayerHealth = 2;
         }
 
         // If bath bomb hit's player, instantly kill the player

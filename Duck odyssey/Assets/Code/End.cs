@@ -31,7 +31,7 @@ public class End : MonoBehaviour
         WinUI.SetActive(false);
         LoseUI.SetActive(true);
 
-        StopCoroutine(FindFirstObjectByType<Spawn>().SpawnObjects());
+        StopCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
     }
 
     public void Replay()
