@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        if (!_input.sprint)
+        if (!_input.sprint || timer < delay)
         {
             vertical = Input.GetAxisRaw("Vertical");
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -73,13 +73,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (lastVertical.Count > 0)
                 {
-                    vertical = (lastVertical[0] + Input.GetAxisRaw("Vertical"))/2f;
+                    vertical = (lastVertical[0]*2 + Input.GetAxisRaw("Vertical"))/3f;
                     lastVertical.RemoveAt(0);
                 }
 
                 if (lastHorizontal.Count > 0)
                 {
-                    horizontal = (lastHorizontal[0] + Input.GetAxisRaw("Horizontal"))/2f;
+                    horizontal = (lastHorizontal[0]*2 + Input.GetAxisRaw("Horizontal"))/3f;
                     lastHorizontal.RemoveAt(0);
                 }
             }
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (_input.sprint && timer >= 0 && rb.useGravity == false)
+        if (_input.sprint && timer >= delay && rb.useGravity == false)
         {
             rb.velocity = new Vector3(horizontal * speed * boost * Time.fixedDeltaTime, vertical * speed * boost * Time.fixedDeltaTime, 0);
         }
