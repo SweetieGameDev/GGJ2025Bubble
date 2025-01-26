@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
-    [SerializeField] string sceneName;
-
     public GameObject GamePlayUI;
     public GameObject WinUI;
     public GameObject LoseUI;
@@ -15,6 +13,8 @@ public class End : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+
         GamePlayUI.SetActive(true);
         WinUI.SetActive(false);
         LoseUI.SetActive(false);
@@ -22,6 +22,8 @@ public class End : MonoBehaviour
 
     public void WinState()
     {
+        
+
         GamePlayUI.SetActive(false);
         WinUI.SetActive(true);
         LoseUI.SetActive(false);
@@ -42,8 +44,16 @@ public class End : MonoBehaviour
 
     public void Replay()
     {
-        // Load the BathRoom scene
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Get the active scene
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Reload the current scene
+        SceneManager.LoadScene(currentScene.name);
     }
 
     public void QuitGame()

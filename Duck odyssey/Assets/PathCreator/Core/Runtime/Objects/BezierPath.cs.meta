@@ -25,3 +25,10 @@ AssetOrigin:
   packageVersion: 1.2
   assetPath: Assets/PathCreator/Core/Runtime/Objects/BezierPath.cs
   uploadId: 317492
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136082
+  packageName: 
+  packageVersion: 1.2
+  assetPath: Assets/PathCreator/Core/Runtime/Objects/BezierPath.cs
+  uploadId: 317492

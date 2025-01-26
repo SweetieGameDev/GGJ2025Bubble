@@ -18,8 +18,4 @@ public class ChangeScene : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void Quit()
-    {
-        Application.Quit();
-    }
 }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHP : MonoBehaviour
 {
     public int PlayerHealth; // Player's health value
+    public float iFrameTime = 1f;
     public bool iFrames; // Can the player take damage
     public Goal Hight; // Visual timer value
 
@@ -16,6 +17,8 @@ public class PlayerHP : MonoBehaviour
     private float sliderProgress = 0f; // Current surival time for player
 
     private Rigidbody DuckRB;
+
+    public GameObject bubble;
 
     void Awake()
     {
@@ -46,6 +49,9 @@ public class PlayerHP : MonoBehaviour
         // If player's health is 0 or lower then bring up the game over state
         if (PlayerHealth <= 0)
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
             Debug.Log("Player is dead");
 
             DuckRB.useGravity = true;  // Dead Player falls into water
@@ -57,6 +63,9 @@ public class PlayerHP : MonoBehaviour
         // Check if sliderProgress matches timetowin
         if (sliderProgress >= 1f)
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
             Debug.Log("Player Wins!");
             State.WinState();
         }
@@ -68,7 +77,7 @@ public class PlayerHP : MonoBehaviour
     {
         iFrames = true;
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(iFrameTime);
 
         iFrames = false;
 
@@ -86,6 +95,9 @@ public class PlayerHP : MonoBehaviour
             {
                 StartCoroutine(InvincibleTime());
                 PlayerHealth -= 1;
+
+                bubble.SetActive(false);
+                DuckRB.useGravity = true;
             }
         }
 
