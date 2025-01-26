@@ -20,6 +20,8 @@ public class End : MonoBehaviour
 
     public void WinState()
     {
+        
+
         GamePlayUI.SetActive(false);
         WinUI.SetActive(true);
         LoseUI.SetActive(false);
