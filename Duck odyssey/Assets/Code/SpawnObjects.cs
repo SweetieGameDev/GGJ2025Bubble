@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnObjects : MonoBehaviour
@@ -32,9 +33,16 @@ public class SpawnObjects : MonoBehaviour
             GameObject prefabToSpawn = objectPrefabs[prefabIndex];
 
             // Spawn random prefab at the random spawn point
-            GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPoint.position, spawnPoint.rotation);
+            Stack<GameObject> spawnedObjects = new Stack<GameObject>();
+            spawnedObjects.Push(Instantiate(prefabToSpawn, spawnPoint.position, spawnPoint.rotation));
 
-            //Destroy(spawnedObject, 5f);
+            if (spawnedObjects.Count() > 0)
+            {
+                for (int i = 0; i < spawnedObjects.Count(); i++)
+                {
+                    Destroy(spawnedObjects.Pop(), 5f);
+                }
+            }
         }
     }
 }
