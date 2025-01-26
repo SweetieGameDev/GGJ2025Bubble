@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterUI: {fileID: 1841117290748662563}
+  tutorialUI: {fileID: 0}
   creditsUI: {fileID: 5081307799105895309}
 --- !u!1 &1016721928045472671
 GameObject:
@@ -24633,16 +24634,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Name LastName: Programming
-
-    Name LastName: Programming
-
-    Name LastName:
-    Modelling
-
-    Name LastName: Sound Desing
-
-'
+  m_text: "Reece Roberts: Programming, Modelling\nCharlie Kidson: Programming, Sound
+    Desing\nJoseph Buckland: Music\nEthan Eksteen: Programming, UI \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 00d7c60e4dcbbba4ba67910f74cf2578, type: 2}
   m_sharedMaterial: {fileID: -4103259415164908583, guid: 00d7c60e4dcbbba4ba67910f74cf2578, type: 2}

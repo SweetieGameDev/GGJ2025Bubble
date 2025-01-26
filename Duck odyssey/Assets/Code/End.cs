@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
+    [SerializeField] string sceneName;
+
     public GameObject GamePlayUI;
     public GameObject WinUI;
     public GameObject LoseUI;
@@ -40,13 +42,8 @@ public class End : MonoBehaviour
 
     public void Replay()
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
-        // Get the active scene
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        // Reload the current scene
-        SceneManager.LoadScene(currentScene.name);
+        // Load the BathRoom scene
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
     public void QuitGame()

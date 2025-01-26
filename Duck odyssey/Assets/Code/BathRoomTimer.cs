@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeScene : MonoBehaviour
+public class BathRoomTimer : MonoBehaviour
 {
     [SerializeField] string sceneName;
-    public void LoadScene()
+
+    public void Start()
     {
-        StartCoroutine(DelaySceneChange());
+        StartCoroutine(DelayLongSceneChange());
     }
 
-    private IEnumerator DelaySceneChange()
+    private IEnumerator DelayLongSceneChange()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(15f);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         Cursor.visible = false;
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
     }
 }
