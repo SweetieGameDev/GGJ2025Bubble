@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313ca8934f30d734dbd737059b2481cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Gameplay
+  sceneName: CharlieScene
 --- !u!4 &1168257972
 Transform:
   m_ObjectHideFlags: 0
@@ -11563,6 +11563,7 @@ Transform:
 --- !u!1 &1000012610690313
 GameObject:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -11626,7 +11627,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000010696734711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_CorrespondingSourceObject: {fileID: 0}
 --- !u!1 &38460699132647157
 GameObject:
   m_ObjectHideFlags: 0
