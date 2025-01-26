@@ -9,7 +9,14 @@ NativeFormatImporter:
 AssetOrigin:
   serializedVersion: 1
   productId: 136082
-  packageName: "B\xE9zier Path Creator"
+  packageName: "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+  packageVersion: 1.2
+  assetPath: Assets/PathCreator/Examples/Prefabs/Path.prefab
+  uploadId: 317492
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136082
+  packageName: 
   packageVersion: 1.2
   assetPath: Assets/PathCreator/Examples/Prefabs/Path.prefab
   uploadId: 317492
