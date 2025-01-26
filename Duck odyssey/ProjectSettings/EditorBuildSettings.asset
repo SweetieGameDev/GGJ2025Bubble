@@ -7,12 +7,12 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
-    guid: 47a4d93b21d04384cb3a8ca6a83fa9c7
+    guid: 11f5bdfc0f226b84bb9aaef822c3be87
   - enabled: 1
     path: Assets/Scenes/Bathroom.unity
     guid: 66fc16b82f8de5043b8d043e1db97a89
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
-    guid: af04e011ca18a984cbae496554c357a8
+    guid: 47a4d93b21d04384cb3a8ca6a83fa9c7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

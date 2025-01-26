@@ -9,7 +9,7 @@ public class ObjectsLogic : MonoBehaviour
         // If any object hit's player, destroy itself
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

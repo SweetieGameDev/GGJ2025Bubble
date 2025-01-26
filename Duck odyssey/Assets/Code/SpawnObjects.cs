@@ -34,7 +34,7 @@ public class SpawnObjects : MonoBehaviour
             // Spawn random prefab at the random spawn point
             GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPoint.position, spawnPoint.rotation);
 
-            Destroy(spawnedObject, 5f);
+            //Destroy(spawnedObject, 5f);
         }
     }
 }
