@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: c0d7fa70c03166e4180909b6e5d546c7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136082
+  packageName: "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+  packageVersion: 1.2
+  assetPath: Assets/PathCreator/Core/Runtime/Objects/EndOfPathInstruction.cs
+  uploadId: 317492
+AssetOrigin:
+  serializedVersion: 1
+  productId: 136082
+  packageName: 
+  packageVersion: 1.2
+  assetPath: Assets/PathCreator/Core/Runtime/Objects/EndOfPathInstruction.cs
+  uploadId: 317492
