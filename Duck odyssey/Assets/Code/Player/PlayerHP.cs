@@ -49,6 +49,9 @@ public class PlayerHP : MonoBehaviour
         // If player's health is 0 or lower then bring up the game over state
         if (PlayerHealth <= 0)
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
             Debug.Log("Player is dead");
 
             DuckRB.useGravity = true;  // Dead Player falls into water
@@ -60,6 +63,9 @@ public class PlayerHP : MonoBehaviour
         // Check if sliderProgress matches timetowin
         if (sliderProgress >= 1f)
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
             Debug.Log("Player Wins!");
             State.WinState();
         }

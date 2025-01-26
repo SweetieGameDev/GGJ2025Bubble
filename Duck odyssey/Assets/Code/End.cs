@@ -13,6 +13,8 @@ public class End : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+
         GamePlayUI.SetActive(true);
         WinUI.SetActive(false);
         LoseUI.SetActive(false);
@@ -42,6 +44,9 @@ public class End : MonoBehaviour
 
     public void Replay()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         string currentSceneName = SceneManager.GetActiveScene().name;
 
         // Get the active scene
