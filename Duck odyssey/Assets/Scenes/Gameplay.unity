@@ -1748,10 +1748,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHealth: 2
+  iFrameTime: 1
   iFrames: 0
   Hight: {fileID: 567115181}
   State: {fileID: 470800156}
   timeToWin: 120
+  bubble: {fileID: 1312519792292236988}
 --- !u!54 &8582359437882294359
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1760,7 +1762,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7560067148316998262}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1797,6 +1799,7 @@ MonoBehaviour:
   timer: 0
   lastVertical: []
   lastHorizontal: []
+  bubble: {fileID: 1312519792292236988}
 --- !u!135 &8582359437882294361
 SphereCollider:
   m_ObjectHideFlags: 0

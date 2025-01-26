@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     public List<float> lastVertical;
     public List<float> lastHorizontal;
 
+    public GameObject bubble;
+
     void Start()
     {
         _input = GetComponent<PlayerCharacterInput>();
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         lastVertical = new List<float>();
         lastHorizontal = new List<float>();
-}
+    }
     void Update()
     {
         if (!_input.sprint)
@@ -51,6 +53,13 @@ public class PlayerMovement : MonoBehaviour
         else if (timer < 0 && timer <= -delay)
         {
             timer = 0;
+        }
+
+        if (_input.jump) 
+        {
+            bubble.SetActive(true);
+            rb.useGravity = false;
+            _input.jump = false;
         }
     }
     void FixedUpdate()
@@ -85,11 +94,13 @@ public class PlayerMovement : MonoBehaviour
             timer = -Mathf.Abs(timer);
         }
 
-        if (_input.sprint && timer >= 0)
+
+
+        if (_input.sprint && timer >= 0 && rb.useGravity == false)
         {
             rb.velocity = new Vector3(horizontal * speed * boost * Time.fixedDeltaTime, vertical * speed * boost * Time.fixedDeltaTime, 0);
         }
-        else
+        else if(rb.useGravity == false)
         {
             rb.velocity = new Vector3(horizontal * speed * Time.fixedDeltaTime, vertical * speed * Time.fixedDeltaTime, 0);
 
