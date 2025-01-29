@@ -29,4 +29,9 @@ public class MenuController : MonoBehaviour
         tutorialUI.SetActive(false);
         creditsUI.SetActive(false);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
