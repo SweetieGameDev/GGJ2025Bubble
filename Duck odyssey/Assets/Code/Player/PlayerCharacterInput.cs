@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerCharacterInput : MonoBehaviour
 {
+    public PlayerHP visableText;
+
     [Header("Character Input Values")]
     public Vector2 move;
     public Vector2 look;
@@ -36,6 +39,8 @@ public class PlayerCharacterInput : MonoBehaviour
     public void OnJump(InputValue value)
     {
         JumpInput(value.isPressed);
+
+        visableText.warningText.text = "";
     }
 
     public void OnSprint(InputValue value)

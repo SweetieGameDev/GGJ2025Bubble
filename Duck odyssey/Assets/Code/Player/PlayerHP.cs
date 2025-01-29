@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerHP : MonoBehaviour
 {
     public int PlayerHealth; // Player's health value
-    public float iFrameTime = 1f;
+    public float iFrameTime; // Time to take no damage
     public bool iFrames; // Can the player take damage
     public Goal Hight; // Visual timer value
 
+    public GameObject PlayerInfoUI;
+
+    public TextMeshProUGUI bubbleText; // Tells player how many lives they have
+
+    public TextMeshProUGUI warningText; // Tells player to preform action to avoid game over
+
     public End State;
+
+    private bool EndThreshold;
 
     public float timeToWin = 120f; //Player must stay alive for this time to win
     private float sliderProgress = 0f; // Current surival time for player
@@ -23,12 +34,20 @@ public class PlayerHP : MonoBehaviour
     void Awake()
     {
         timeToWin = 120f;
-        PlayerHealth = 2; // Starting player health
+        PlayerHealth = 3; // Starting player health
+        iFrameTime = 1.5f; // Default time to take no damage
         iFrames = false;
+
+        PlayerInfoUI.SetActive(true);
+
+        bubbleText.text = "Bubbles: " + PlayerHealth.ToString();
+        warningText.text = "";
 
         DuckRB = GetComponent<Rigidbody>();
 
         DuckRB.useGravity = false; // Prevents Player from falling
+
+        EndThreshold = false; // Used to prevent unwanted repeating of certain functions in update
 
         StartCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
         StartCoroutine(FindFirstObjectByType<SpawnBubbles>().SpawnPrefabs());
@@ -47,26 +66,29 @@ public class PlayerHP : MonoBehaviour
         }
 
         // If player's health is 0 or lower then bring up the game over state
-        if (PlayerHealth <= 0)
+        if (PlayerHealth <= 0 && EndThreshold != true)
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
 
-            Debug.Log("Player is dead");
+            EndThreshold = true;
 
             DuckRB.useGravity = true;  // Dead Player falls into water
+
+            PlayerInfoUI.SetActive(false);
 
             State.LoseState();
         }
 
 
         // Check if sliderProgress matches timetowin
-        if (sliderProgress >= 1f)
+        if (sliderProgress >= 1f && EndThreshold != true)
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
 
-            Debug.Log("Player Wins!");
+            EndThreshold = true;
+
             State.WinState();
         }
 
@@ -95,6 +117,8 @@ public class PlayerHP : MonoBehaviour
             {
                 StartCoroutine(InvincibleTime());
                 PlayerHealth -= 1;
+                bubbleText.text = "Bubbles: " + PlayerHealth.ToString();
+                warningText.text = "Enter new bubble now!";
 
                 bubble.SetActive(false);
                 DuckRB.useGravity = true;
@@ -104,7 +128,8 @@ public class PlayerHP : MonoBehaviour
         // If bubbles touch player, restore their health
         if (other.gameObject.CompareTag("Bubbles"))
         {
-            PlayerHealth = 2;
+            PlayerHealth = 3;
+            bubbleText.text = "Bubbles: " + PlayerHealth.ToString();
         }
 
         // If bath bomb hit's player, instantly kill the player

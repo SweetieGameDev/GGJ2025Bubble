@@ -674,14 +674,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'W, A, S, D / Analogue stick - Move
+  m_text: 'W, A, S, D / Left stick - Move
 
-    Shift (Hold)/Square (Hold)/X (Hold)
-    - Boost
 
-    Space - Enter new bubble
+    Shift (Hold) / Square (Hold) / X
+    (Hold) - Boost
 
-'
+
+    Space / X / A - Enter new bubble'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 00d7c60e4dcbbba4ba67910f74cf2578, type: 2}
   m_sharedMaterial: {fileID: -4103259415164908583, guid: 00d7c60e4dcbbba4ba67910f74cf2578, type: 2}
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.8
+  m_fontSize: 45.6
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1

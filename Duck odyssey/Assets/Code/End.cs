@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class End : MonoBehaviour
 {
+    public EventSystem eventSystem;
     public GameObject GamePlayUI;
     public GameObject WinUI;
+    public Button winFirstButton;
     public GameObject LoseUI;
+    public Button loseFirstButton;
 
 
     // Start is called before the first frame update
@@ -22,11 +27,11 @@ public class End : MonoBehaviour
 
     public void WinState()
     {
-        
-
         GamePlayUI.SetActive(false);
         WinUI.SetActive(true);
         LoseUI.SetActive(false);
+
+        eventSystem.SetSelectedGameObject(winFirstButton.gameObject);
 
         StopCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
         StopCoroutine(FindFirstObjectByType<SpawnBubbles>().SpawnPrefabs());
@@ -37,6 +42,8 @@ public class End : MonoBehaviour
         GamePlayUI.SetActive(false);
         WinUI.SetActive(false);
         LoseUI.SetActive(true);
+
+        eventSystem.SetSelectedGameObject(loseFirstButton.gameObject);
 
         StopCoroutine(FindFirstObjectByType<SpawnObjects>().SpawnPrefabs());
         StopCoroutine(FindFirstObjectByType<SpawnBubbles>().SpawnPrefabs());
